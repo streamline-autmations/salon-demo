@@ -11,6 +11,7 @@ interface CartContextValue {
   addToCart:  (product: Product) => void
   removeItem: (id: number) => void
   changeQty:  (id: number, delta: number) => void
+  clearCart:  () => void
   openCart:   () => void
   closeCart:  () => void
 }
@@ -41,13 +42,15 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }, [])
 
+  const clearCart = useCallback(() => setCart([]), [])
+
   const cartCount = cart.reduce((s, i) => s + i.qty, 0)
   const cartTotal = cart.reduce((s, i) => s + i.price * i.qty, 0)
 
   return (
     <CartContext.Provider value={{
       cart, cartCount, cartTotal, isOpen,
-      addToCart, removeItem, changeQty,
+      addToCart, removeItem, changeQty, clearCart,
       openCart: () => setOpen(true),
       closeCart: () => setOpen(false),
     }}>

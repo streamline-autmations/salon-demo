@@ -82,6 +82,17 @@ export default function Navbar() {
               </AnimatePresence>
             </button>
 
+            {/* Account */}
+            <Link
+              to="/account"
+              className={`hidden md:flex p-1 transition-colors duration-300 ${light ? 'text-white/70 hover:text-white' : 'text-ink/50 hover:text-ink'}`}
+              aria-label="Account"
+            >
+              <svg width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+            </Link>
+
             {/* Book */}
             <a
               href={`https://wa.me/${SITE.business.whatsapp}`}

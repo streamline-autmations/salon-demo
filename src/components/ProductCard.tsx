@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useCart } from '../context/CartContext'
 import type { Product } from '../config/site'
@@ -12,7 +13,7 @@ export default function ProductCard({ product }: { product: Product }) {
       transition={{ duration: 0.2 }}
       className="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-400"
     >
-      <div className="relative aspect-square overflow-hidden bg-stone">
+      <Link to={`/shop/product/${product.id}`} className="block relative aspect-square overflow-hidden bg-stone">
         <img
           src={product.image}
           alt={product.name}
@@ -21,16 +22,21 @@ export default function ProductCard({ product }: { product: Product }) {
         />
         {product.badge && (
           <span className={`absolute top-2.5 left-2.5 lbl px-2.5 py-1 rounded-full text-white ${
-            product.badge === 'Sale' ? 'bg-rose-500' :
-            product.badge === 'New' ? 'bg-accent' : 'bg-ink/75'
+            product.badge === 'Sale'        ? 'bg-rose-500' :
+            product.badge === 'New'         ? 'bg-accent'   :
+            product.badge === 'Best Seller' ? 'bg-ink/75'   : 'bg-stone'
           }`}>
             {product.badge}
           </span>
         )}
-      </div>
+      </Link>
       <div className="p-4">
         <p className="lbl text-muted mb-1">{product.brand}</p>
-        <p className="text-[13px] font-medium text-ink leading-snug mb-3">{product.name}</p>
+        <Link to={`/shop/product/${product.id}`}>
+          <p className="text-[13px] font-medium text-ink leading-snug mb-3 hover:text-accent transition-colors duration-200">
+            {product.name}
+          </p>
+        </Link>
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-xl font-light text-ink">R{product.price.toLocaleString()}</span>

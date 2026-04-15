@@ -39,20 +39,20 @@ export default function Gallery() {
       <section className="py-20 md:py-28 bg-warm">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
-          {/* Filter */}
+          {/* Underline tab filter */}
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-wrap gap-2 mb-12"
+            className="flex gap-0 border-b border-stone mb-12 overflow-x-auto"
           >
             {cats.map(c => (
               <button
                 key={c}
                 onClick={() => setCat(c)}
-                className={`lbl px-5 py-2 rounded-full border transition-all duration-250 ${
+                className={`lbl px-5 py-4 border-b-2 -mb-px whitespace-nowrap transition-all duration-200 ${
                   cat === c
-                    ? 'bg-accent border-accent text-white'
-                    : 'border-stone text-muted hover:border-accent hover:text-accent'
+                    ? 'border-accent text-accent'
+                    : 'border-transparent text-muted hover:text-ink'
                 }`}
               >
                 {c}
@@ -60,12 +60,12 @@ export default function Gallery() {
             ))}
           </motion.div>
 
-          {/* Masonry via CSS columns */}
+          {/* Uniform 3-col grid */}
           <motion.div
             key={cat}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            className="columns-2 md:columns-3 gap-3 md:gap-4"
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"
           >
             {filtered.map((img, i) => (
               <motion.div
@@ -73,19 +73,18 @@ export default function Gallery() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.05 }}
+                transition={{ duration: 0.55, delay: Math.min(i * 0.06, 0.35) }}
                 onClick={() => setActive(img)}
-                className="break-inside-avoid mb-3 md:mb-4 overflow-hidden rounded-sm cursor-pointer group relative"
+                className="aspect-square overflow-hidden rounded-sm cursor-pointer group relative bg-stone"
               >
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
-                  className="w-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.07] transition-transform duration-600"
                 />
-                {/* Category pill */}
-                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/30 transition-colors duration-300 flex items-end p-4">
-                  <span className="lbl text-white/0 group-hover:text-white/80 transition-colors duration-300 bg-black/40 px-2.5 py-1 rounded-full">
+                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/35 transition-colors duration-300 flex items-end p-4">
+                  <span className="lbl text-white/0 group-hover:text-white/80 transition-all duration-300 bg-black/40 px-2.5 py-1 rounded-full text-[10px]">
                     {img.category}
                   </span>
                 </div>
