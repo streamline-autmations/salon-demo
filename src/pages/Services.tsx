@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SITE } from '../config/site'
+import { SITE, SALON_IMAGES } from '../config/site'
 import PageHeader from '../components/PageHeader'
+
+const U = (id: string, w: number, h: number) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
 const waLink = `https://wa.me/${SITE.business.whatsapp}`
 
@@ -21,7 +24,7 @@ export default function Services() {
         label="What We Offer"
         title="Our Services"
         subtitle="Every service is a conversation. We study your hair before we touch it — and we finish when it's right."
-        image="https://picsum.photos/1920/600?random=60"
+        image={U(SALON_IMAGES.services, 1920, 600)}
       />
 
       {/* ── VIDEO PLACEHOLDER ── */}
@@ -47,7 +50,7 @@ export default function Services() {
             className="relative aspect-video bg-white/5 rounded-sm overflow-hidden border border-white/10 flex items-center justify-center group cursor-pointer"
           >
             <img
-              src="https://picsum.photos/800/450?random=71"
+              src={U(SALON_IMAGES.videoStill, 800, 450)}
               alt="Noir Studio in action"
               className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500"
             />
@@ -140,7 +143,7 @@ export default function Services() {
                             <p className="text-muted text-[14px] font-light leading-relaxed">{s.description}</p>
                           </div>
                           <img
-                            src={`https://picsum.photos/500/340?random=${60 + s.id}`}
+                            src={U(['1522337360788-8b13dee7a37e','1560869713-7d0a29430803','1519699047748-de8e457a634e','1595152772835-6e75b60e9a2c','1503951914875-452162b0f3f1','1527799820374-dcf8d9d4a388'][s.id - 1], 500, 340)}
                             alt={s.name}
                             className="w-full h-40 object-cover rounded-sm"
                             loading="lazy"

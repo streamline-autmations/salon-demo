@@ -5,8 +5,8 @@ import PageHeader from '../components/PageHeader'
 import ProductCard from '../components/ProductCard'
 import { useCart } from '../context/CartContext'
 
-const CATS   = ['All', 'Treatments', 'Shampoo & Care', 'Styling', 'Tools']
-const BRANDS = ['All Brands', 'Moroccanoil', 'Olaplex', 'Kérastase', 'Wella Professionals', 'Redken', 'Goldwell', 'Schwarzkopf Professional', 'Sebastian Professional', 'Bumble and Bumble', 'Tangle Teezer']
+const CATS   = ['All', 'Treatments', 'Shampoo & Care', 'Styling', 'Scalp Care', 'Tools']
+const BRANDS = ['All Brands', 'Moroccanoil', 'Olaplex', 'Kérastase', 'Wella Professionals', 'Redken', 'Goldwell', 'Schwarzkopf Professional', 'Sebastian Professional', 'Bumble and Bumble', 'Nioxin', 'Aveda', 'Tangle Teezer', 'Denman']
 const SORTS  = ['Featured', 'Price: Low to High', 'Price: High to Low', 'Newest']
 
 export default function Shop() {
@@ -31,7 +31,7 @@ export default function Shop() {
         label="The Salon Shop"
         title="Professional products,<br /><em>at home.</em>"
         subtitle="The same brands we use in the salon — available for you to take home."
-        image="https://picsum.photos/1920/600?random=62"
+        image="https://images.unsplash.com/photo-1583922606661-5934e74c9a69?auto=format&fit=crop&w=1920&h=600&q=80"
       />
 
       {/* ── INFO STRIP ── */}

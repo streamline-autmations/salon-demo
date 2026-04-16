@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
-import { SITE } from '../config/site'
+import { SITE, SALON_IMAGES } from '../config/site'
 import PageHeader from '../components/PageHeader'
+
+const U = (id: string, w: number, h: number) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 
 const waLink = `https://wa.me/${SITE.business.whatsapp}`
 
@@ -39,7 +42,7 @@ export default function About() {
         label="About Us"
         title="More than a salon.<br /><em>A sanctuary.</em>"
         subtitle="Vanderbijlpark's premier hair atelier, built on craft, honesty and a genuine love for the work."
-        image="https://picsum.photos/1920/600?random=63"
+        image={U(SALON_IMAGES.about, 1920, 600)}
       />
 
       {/* ── OWNER STORY ── */}
@@ -53,7 +56,7 @@ export default function About() {
               className="overflow-hidden rounded-sm"
             >
               <img
-                src="https://picsum.photos/700/840?random=56"
+                src={U(SALON_IMAGES.ownerPortrait, 700, 840)}
                 alt="Adéle Möller — Founder of Noir Studio"
                 className="w-full h-[440px] lg:h-[600px] object-cover hover:scale-[1.02] transition-transform duration-700"
                 loading="lazy"

@@ -1,7 +1,10 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { SITE } from '../config/site'
+import { SITE, SALON_IMAGES } from '../config/site'
+
+const U = (id: string, w: number, h: number) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
 import MarqueeStrip from '../components/MarqueeStrip'
 import ProductCard from '../components/ProductCard'
 
@@ -220,7 +223,7 @@ export default function Home() {
               className="overflow-hidden rounded-sm"
             >
               <img
-                src="https://picsum.photos/700/840?random=55"
+                src={U(SALON_IMAGES.homeAbout, 700, 840)}
                 alt="About Noir Studio"
                 className="w-full h-[420px] lg:h-[580px] object-cover hover:scale-[1.025] transition-transform duration-700"
                 loading="lazy"

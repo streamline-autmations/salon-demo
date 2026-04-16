@@ -32,7 +32,7 @@ export default function Gallery() {
         label="Our Work"
         title="Gallery"
         subtitle="A curated look at some of our favourite transformations."
-        image="https://picsum.photos/1920/600?random=61"
+        image={`https://images.unsplash.com/photo-1487412947147-5cebf100d293?auto=format&fit=crop&w=1920&h=600&q=80`}
       />
 
       {/* ── FILTER + GRID ── */}
