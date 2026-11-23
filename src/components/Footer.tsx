@@ -75,9 +75,9 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-8">
           <p className="lbl text-white/20">© {year} {SITE.business.name}. All rights reserved.</p>
           <p className="lbl text-white/15">
-            Built by{' '}
-            <a href="https://streamline-automations.agency" target="_blank" rel="noreferrer"
-              className="hover:text-accent transition-colors">
+            Designed &amp; built by{' '}
+            <a href="https://streamline-automations.co.za/" target="_blank" rel="noopener"
+              className="underline-offset-2 hover:underline hover:text-accent transition-colors">
               Streamline Automations
             </a>
           </p>
